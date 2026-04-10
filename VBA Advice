@@ -1,0 +1,59 @@
+'Mise à jour TVA avec retour au taux init (4)
+
+Public memory As Integer
+
+Private Sub CommandButton1_Click()
+  Feuil2.Cells(11, 2) = tva.Value / 100
+End Sub
+
+Private Sub CommandButton2_Click()
+  Unload Me
+End Sub
+
+Private Sub CommandButton4_Click()
+  Feuil2.Cells(11, 2) = memory / 100
+  tva = memory
+End Sub
+
+Private Sub UserForm_Activate()
+  tva.Value = Feuil2.Cells(11, 2) * 100
+  memory = Feuil2.Cells(11, 2) * 100
+
+End Sub
+
+'Mise à jour des produits avec list index
+
+
+Private Sub CommandButton1_Click()
+  p = ComboBox1.ListIndex + 2
+  Feuil1.Cells(p, 3) = TextBox1.Value
+
+End Sub
+
+
+Private Sub CommandButton2_Click()
+  Unload Me
+End Sub
+
+Private Sub UserForm_Activate()
+
+  i = 2
+
+Do While Feuil1.Cells(i, 2) <> ""
+    ComboBox1.AddItem (Feuil1.Cells(i, 2))
+    i = i + 1
+    
+Loop
+
+
+End Sub
+Private Sub ComboBox1_Change()
+  p = ComboBox1.ListIndex
+  p = p + 2
+ TextBox1.Value = Feuil1.Cells(p, 3)
+End Sub
+
+'Màj taux TVA et remise (2025) + 2026 vba
+
+
+
