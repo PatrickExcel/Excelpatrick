@@ -81,7 +81,42 @@ Private Sub UserForm_Activate()
 
 End Sub
 
+Liste déroulante 2026
 
+Private Sub ABANDONNER_Click()
+  Unload Me
+End Sub
+
+Private Sub ComboBox1_Change()
+  Position = ComboBox1.ListIndex + 4
+  TextBox1 = Feuil1.Cells(Position, 2) * 100
+End Sub
+
+
+Private Sub UserForm_Activate()
+  ligne = 4
+Do While Feuil1.Cells(ligne, 2) <> ""
+ComboBox1.AddItem (Feuil1.Cells(ligne, 1))
+ligne = ligne + 1
+Loop
+End Sub
+
+
+Private Sub VALIDER_Click()
+
+
+If TextBox1.Value > 0 Then
+
+If IsNumeric(TextBox1.Value) Then
+  Position = ComboBox1.ListIndex + 4
+  Feuil1.Cells(Position, 2) = TextBox1.Value / 100
+Else
+  MsgBox "Vous devez entrer une valeur numérique !!!"
+End If
+Else
+  MsgBox "Pas de remise négative !!!"
+End If
+End Sub
 
 
 
