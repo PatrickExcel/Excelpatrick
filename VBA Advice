@@ -1,4 +1,4 @@
-'Mise à jour TVA avec retour au taux init (4)
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Mise à jour TVA avec retour au taux init <<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 Public memory As Integer
 
@@ -21,7 +21,8 @@ Private Sub UserForm_Activate()
 
 End Sub
 
-'Mise à jour des produits avec list index
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Mise à jour des produits avec list index <<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
 Private Sub CommandButton1_Click()
@@ -53,7 +54,9 @@ Private Sub ComboBox1_Change()
  TextBox1.Value = Feuil1.Cells(p, 3)
 End Sub
 
-'Màj taux TVA et remise
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Màj taux TVA et remise <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 
 Private Sub CommandButton1_Click()
 
@@ -81,7 +84,9 @@ Private Sub UserForm_Activate()
 
 End Sub
 
-Liste déroulante 2026
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Liste déroulante 2026 <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 
 Private Sub ABANDONNER_Click()
   Unload Me
@@ -118,5 +123,36 @@ Else
 End If
 End Sub
 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>> MAJ TVA ET REMISE AVEC RETOUR AU TAUX INIT 2025 <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+Private Sub CommandButton1_Click()
+  p = ComboBox1.ListIndex + 2
+  Feuil1.Cells(p, 3) = TextBox1.Value
+
+End Sub
+
+
+Private Sub CommandButton2_Click()
+  Unload Me
+End Sub
+
+Private Sub UserForm_Activate()
+
+  i = 2
+
+Do While Feuil1.Cells(i, 2) <> ""
+    ComboBox1.AddItem (Feuil1.Cells(i, 2))
+    i = i + 1
+    
+Loop
+
+
+End Sub
+Private Sub ComboBox1_Change()
+  p = ComboBox1.ListIndex
+  p = p + 2
+ TextBox1.Value = Feuil1.Cells(p, 3)
+End Sub
 
 
